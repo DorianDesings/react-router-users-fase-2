@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import Pagination from '../pagination/Pagination';
 import UserListFilters from '../user-list-filters/UserListFilters';
-import UsersListRows from '../users-list-rows/UsersListRows';
 
 const UsersList = ({ initialUsers }) => {
 	const [search, setSearch] = useState('');
@@ -22,7 +22,7 @@ const UsersList = ({ initialUsers }) => {
 				sortBy={sortBy}
 				setSortBy={setSortBy}
 			/>
-			<UsersListRows users={filteredUsers} />
+			<Pagination users={filteredUsers} />
 		</div>
 	);
 };

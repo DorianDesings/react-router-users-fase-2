@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import IconButton from '../icon-button/IconButton';
+import UsersListRows from '../users-list-rows/UsersListRows';
 
-const Pagination = ({ initialUsers }) => {
+const Pagination = ({ users }) => {
 	const [page, setPage] = useState(1);
 	const [itemsPerPage, setItemsPerPage] = useState(4);
 
-	const totalPages = Math.ceil(initialUsers.length / itemsPerPage);
+	const totalPages = Math.ceil(users.length / itemsPerPage);
 
-	const renderedUsers = paginateUsers(filteredUsers, page, itemsPerPage);
+	const renderedUsers = paginateUsers(users, page, itemsPerPage);
 
 	const isFirstPage = page === 1;
 	const isLastPage = page === totalPages;
@@ -48,6 +50,7 @@ const Pagination = ({ initialUsers }) => {
 					alt=''
 				/>
 			</IconButton>
+			<UsersListRows users={renderedUsers} />
 		</>
 	);
 };
